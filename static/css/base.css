@@ -36,14 +36,14 @@ body {
 .main-nav-link {
     text-transform: uppercase;
     color: var(--color-black);
-    font-size: 1.6rem;
+    font-size: 1rem;
     padding-right: 55px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.shop-now-button {
+.book-now-button {
     background: black;
     color: white;
     min-width: 260px;
