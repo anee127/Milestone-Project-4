@@ -1,11 +1,15 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">   
         <li class="nav-item">
-            <a class="main-nav-link" href="#" id="Workshops-links">
+            <a class="main-nav-link" href="{% url 'home' %}" id="home-links">
+                Home
+        </li>
+        <li class="nav-item">
+            <a class="main-nav-link" href="{% url 'products' %}?category=Workshops" id="Workshops-links">
                 Workshops
         </li>
         <li class="nav-item">
-            <a class="main-nav-link" href="#" id="products-links">
+            <a class="main-nav-link" href="{% url 'products' %}?category=Candles" id="products-links">
                 Products
         </li>
         <li class="nav-item">
