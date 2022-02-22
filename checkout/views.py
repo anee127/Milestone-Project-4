@@ -1,10 +1,12 @@
 from django.shortcuts import (
-    render, redirect, reverse
+    render, redirect, reverse, get_object_or_404
 )
+
 from django.contrib import messages
 from django.conf import settings
 
 from .forms import OrderForm
+from .models import Order, OrderLineItem
 
 from basket.contexts import basket_contents
 
@@ -35,22 +37,22 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_basket = json.dumps(basket)
             order.save()
             for item_id, item_data in basket.items():
                 try:
                     product = Product.objects.get(id=item_id)
-                    order_line_item = OrderLineItem(
-                        order=order,
-                        product=product,
-                        quantity=item_data,
-                    )
-                    order_line_item.save()    
+                    if isinstance(item_data, int):
+                        order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                        )
+                        order_line_item.save()    
+
                 except Product.DoesNotExist:
                     messages.error(request, (
                         "One of the products in your basket wasn't "
-                        "found in our database. "
-                        "Please call us for assistance!")
+                        "found in our database. ")
                     )
                     order.delete()
                     return redirect(reverse('view_basket'))
@@ -77,7 +79,8 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-
+        order_form = OrderForm()
+        
     if not stripe_public_key:
         messages.warning(request, ('Stripe public key is missing. '
                                    'Did you forget to set it in '
@@ -90,4 +93,25 @@ def checkout(request):
         'client_secret': intent.client_secret,  
     }
     
+    return render(request, template, context)
+
+def checkout_success(request, order_number):
+    """
+    Handle successful checkouts
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.success(request, f'Order successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+
+    if 'basket' in request.session:
+        del request.session['basket']
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'order': order,
+    }
+
     return render(request, template, context)
