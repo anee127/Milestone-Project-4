@@ -45,7 +45,7 @@ Site user – register easy, login/out, recover password when forget, receive em
 Sorting searching
 Shopper- sort list of available products/ category/multiple categories at same time, search by name/description, see search and number of results.
 Purchase/checkout
-Shopper – select size/quantity of product, view items in bag, adjust items in bag, enter payment info, secure payment, view order confirm, get email receipt. 
+Shopper – select size/quantity of product, view items in basket, adjust items in basket, enter payment info, secure payment, view order confirm, get email receipt. 
 Admin 
 Store owner – add product, edit update a product, delete product.
 
@@ -145,9 +145,9 @@ For example, users receive an order confirmation e-mail after a purchase, accoun
 - By clicking on a product, user can see the full product info including pictures of product, name, description, price and an add button if they would like to add product.
 - Admin product management activities include adding, editing and deleting products. Users with admin rights can do that directly in the UI through forms.
 
-#### Bag app
-- bag Django app is a standard e-commerce functionality which aids the checkout process.
-- A cart is always present in the top right corner of the web app. The bag adds a number symbol beside the cart letting the user know how many items they currently have in their bag.
+#### basket app
+- basket Django app is a standard e-commerce functionality which aids the checkout process.
+- A cart is always present in the top right corner of the web app. The basket adds a number symbol beside the cart letting the user know how many items they currently have in their basket.
 - Users can edit quantity of items or remove them from cart and see price total amount. In order to proceed with checkout, user will be required to register on the site. When user decides to finish shopping, they will need to input their information and credit card details so that purchase can be completed.
 - If users try to access their empty carts, there will be a message displayed that nothing has been added yet and encourage them to go to the shop.
 

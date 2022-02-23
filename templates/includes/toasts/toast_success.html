@@ -15,9 +15,9 @@
             </div>
         </div>
         {% if grand_total and not on_profile_page %}
-        <p class="items-in-cart">Items In Your bag ({{ product_count }})</p>
-        <div class="bag-notification-wrapper">
-            {% for item in bag_items %}
+        <p class="items-in-cart">Items In Your basket ({{ product_count }})</p>
+        <div class="basket-notification-wrapper">
+            {% for item in basket_items %}
             <div class="row">
                 <div class="col-3 my-1">
                     {% if item.product.image %}
