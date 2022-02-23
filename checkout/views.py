@@ -29,7 +29,6 @@ def checkout(request):
             'town_or_city': request.POST['town_or_city'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
-            # 'country': request.POST['country'],
         }
 
         order_form = OrderForm(form_data)
@@ -79,6 +78,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
+
         order_form = OrderForm()
 
     if not stripe_public_key:
