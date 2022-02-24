@@ -1,0 +1,1 @@
+Vanilla and Musk Confirmation for Order Number {{ order.order_number }}
