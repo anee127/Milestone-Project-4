@@ -2,156 +2,147 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
 
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
     {% block corecss %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato&display=swap">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
-        <script src="https://kit.fontawesome.com/a6737d1ccc.js" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-        <!-- Stripe -->
-        <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://kit.fontawesome.com/a6737d1ccc.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
     <title>Vanilla & Musk {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
-        <!-- header -->
+</head>
+
+<body>
+    <!-- header -->
     <header class="container-fluid">
-      <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-            <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                <h2 class="logo-font text-black my-0"><strong>Vanilla & Musk</strong></h2>
-            </a>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <form method="GET" action="{% url 'products' %}">
-                <div class="input-group w-100">
-                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search our site">
-                    <div class="input-group-append">
-                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-search"></i>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-            <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                <li class="list-inline-item dropdown">
-                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="text-center">
-                            <div><i class="fas fa-user fa-lg"></i></div>
-                            <p class="my-0">My Account</p>
+        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0"><strong>Vanilla & Musk</strong></h2>
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <form method="GET" action="{% url 'products' %}">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                            placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
                         </div>
-                    </a>
-                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
                             <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
                             {% endif %}
                             <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                        {% else %}
+                            {% else %}
                             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                             <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                        {% endif %}
-                    </div>
-                </li>
-                <li class="list-inline-item">
-                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_basket' %}">
-                        <div class="text-center">
-                            <div><i class="fas fa-shopping-basket fa-lg"></i></div>
-                            <p class="my-0">
-                                {% if grand_total %}
-                                    £{{ grand_total|floatformat:2 }}
-                                {% else %}
-                                    £0.00
-                                {% endif %}
-                            </p>
+                            {% endif %}
                         </div>
-                    </a>
-                </li>
-            </ul>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                            href="{% url 'view_basket' %}">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-basket fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                    £{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                    £0.00
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
         </div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0"></div>
-    </div>
-      <!-- navbar toggler for mobile view -->
-    <div class="row bg-white">
-      <nav class="navbar navbar-expand-lg navbar-light w-100">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-          </button>
-          {% include 'includes/mobile-top-header.html' %}
-          {% include 'includes/main-nav.html' %}
-      </nav>
-  </div>
+        <!-- navbar toggler for mobile view -->
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+                    aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
 
-  <!-- footer -->
-  <footer class="container-fluid">
-    <div class="row bg-white footer-container">        
-        <div class="col-md-4 col-sm-12 text-center mt-3 mb-3">
-            <p class="footer-header text-black"><span class="font-bold">Contact Us:</span> Email</p>
-            <p class="footer-text text-black">contactus@vanillamusk.com</p>
-        </div>    
-        <div class="col-md-4 col-sm-6 text-center mt-3 mb-3">
-            <p class="footer-header text-black"><span class="font-bold">Location:</span> Address</p>
-            <p class="footer-text text-black">32-38 Leman Street, Algate, London, E1 8EW</p>
-        </div> 
-        <div class="col-md-4 col-sm-6 text-center mt-3 mb-3">
-            <h6 class="footer-header text-black text-uppercase">Socials</h6>
-            <ul class="list-inline social-links">
-                <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook fa-2x text-black"></i></a></li>
-                <li class="list-inline-item"><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter fa-2x text-black"></i></a></li>
-                <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram fa-2x text-black"></i></a></li>
-            </ul>
-        </div>        
-    </div>       
-</footer> 
-
-<!-- message toasts -->
-    {% if messages %}
+        <!-- message toasts -->
+        {% if messages %}
         <div class="message-container">
             {% for message in messages %}
             {% with message.level as level %}
-                {% if level == 40 %}
-                    {% include 'includes/toasts/toast_error.html' %}
-                {% elif level == 30 %}
-                    {% include 'includes/toasts/toast_warning.html' %}
-                {% elif level == 25 %}
-                    {% include 'includes/toasts/toast_success.html' %}
-                {% else %}
-                    {% include 'includes/toasts/toast_info.html' %}
-                {% endif %}
+            {% if level == 40 %}
+            {% include 'includes/toasts/toast_error.html' %}
+            {% elif level == 30 %}
+            {% include 'includes/toasts/toast_warning.html' %}
+            {% elif level == 25 %}
+            {% include 'includes/toasts/toast_success.html' %}
+            {% else %}
+            {% include 'includes/toasts/toast_info.html' %}
+            {% endif %}
             {% endwith %}
             {% endfor %}
         </div>
-    {% endif %}
+        {% endif %}
 
-    {% block page_header %}
-    {% endblock %}
+        {% block page_header %}
+        {% endblock %}
     </header>
     <div class="container"></div>
     {% block content %}
@@ -162,7 +153,32 @@
         $('.toast').toast('show');
     </script>
     {% endblock %}
-   
-    
-  </body>
+
+    <!-- footer -->
+    <footer class="container-fluid">
+        <div class="row bg-white footer-container">
+            <div class="col-md-4 col-sm-12 text-center mt-3 mb-3">
+                <p class="footer-header text-black"><span class="font-bold">Contact Us:</span> Email</p>
+                <p class="footer-text text-black">contactus@vanillamusk.com</p>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center mt-3 mb-3">
+                <p class="footer-header text-black"><span class="font-bold">Location:</span> Address</p>
+                <p class="footer-text text-black">32-38 Leman Street, Algate, London, E1 8EW</p>
+            </div>
+            <div class="col-md-4 col-sm-6 text-center mt-3 mb-3">
+                <h6 class="footer-header text-black text-uppercase">Socials</h6>
+                <ul class="list-inline social-links">
+                    <li class="list-inline-item"><a href="https://www.facebook.com" target="_blank"><i
+                                class="fab fa-facebook fa-2x text-black"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.twitter.com" target="_blank"><i
+                                class="fab fa-twitter fa-2x text-black"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.instagram.com" target="_blank"><i
+                                class="fab fa-instagram fa-2x text-black"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
 </html>
