@@ -1,5 +1,6 @@
+""" imports for product views """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
-from django.contrib import messages 
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -7,7 +8,6 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from .forms import ProductForm
 
-# Create your views here.
 
 def all_products(request):
     """ A view to return the index page """
@@ -35,7 +35,7 @@ def all_products(request):
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
-            products = products.filter(category__name__in=categories)    
+            products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
         if 'q' in request.GET:
@@ -45,9 +45,9 @@ def all_products(request):
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)    
+            products = products.filter(queries)
 
-    current_sorting = f'{sort}_{direction}'        
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
@@ -58,6 +58,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
@@ -67,7 +68,8 @@ def product_detail(request, product_id):
         'product': product,
     }
 
-    return render(request, 'products/product_detail.html', context)  
+    return render(request, 'products/product_detail.html', context)
+
 
 @login_required
 def add_product(request):
@@ -94,7 +96,8 @@ def add_product(request):
         'form': form,
     }
 
-    return render(request, template, context)      
+    return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -137,4 +140,4 @@ def delete_product(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
-    return redirect(reverse('products'))    
+    return redirect(reverse('products'))

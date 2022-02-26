@@ -1,4 +1,4 @@
-from django.contrib import admin
+""" import for products urls """
 from django.urls import path
 from . import views
 
