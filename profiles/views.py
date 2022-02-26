@@ -1,3 +1,4 @@
+""" imports for profile views """
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -34,7 +35,9 @@ def profile(request):
 
     return render(request, template, context)
 
+
 def order_history(request, order_number):
+    """ display users order history """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
