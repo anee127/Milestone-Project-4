@@ -1,13 +1,16 @@
+""" imports for checkout admin """
 from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """ line item for orders """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """ fields for order process """
     inlines = (OrderLineItemAdminInline,)
 
     readonly_fields = ('order_number', 'date',
