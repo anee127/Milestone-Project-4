@@ -22,6 +22,11 @@ body {
 
 .logo-font {
     font-weight: 100;
+    font-style: italic;
+}
+
+.first-logo {
+    color:  #F3E5AB;
 }
 
 .main-logo-link {
