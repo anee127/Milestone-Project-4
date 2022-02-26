@@ -1,6 +1,3 @@
-import os
-import dj_database_url
-
 """
 Django settings for vanilla_musk project.
 
@@ -12,6 +9,8 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import os
+import dj_database_url
 
 from pathlib import Path
 
@@ -50,7 +49,7 @@ INSTALLED_APPS = [
     'checkout',
     'profiles',
 
-    #OTHER
+    # OTHER
 
     'crispy_forms',
     'storages',
