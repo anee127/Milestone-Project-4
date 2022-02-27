@@ -10,20 +10,24 @@
   * [The Scope Plane](#the-scope-plane)
   * [The Structure Plane](#the-structure-plane)
   * [The Skeleton Plane](#the-skeleton-plane)
-    * [Wireframes](#wireframes)
-    * [Database Design](#database-design)
-    * [Security](#security)
+    + [Wireframes](#wireframes)
+    + [Database Design](#database-design)
+    + [Security](#security)
   * [The Surface Plane](#the-surface-plane)
 * [Features](#features)
-   * [Existing Features](#existing-features)
-   * [Future Features](#future-features)
+   + [Existing Features](#existing-features)
+   + [Future Features](#future-features)
 * [Technologies](#technologies)
+   + [Languages](#languages)
+   + [Database](#database)
+   + [Libraries and Framework](#libraries-and-framework)
 * [Testing](#testing)
 * [Deployment](#deployment)
-    * [AWS S3](#aws-s3)
-    * [Heroku Deployment](#heroku)
-    * [Local Deployment](#local-deployment)
+    + [AWS S3](#aws-s3)
+    + [Deploy To Heroku](#deploy-to-heroku)
+    + [Deploy to GitHub](#ldeploy-to-github)
 * [Credits](#credits)
+* [Acknowledgements](#acknowledgements)
 
 ****
 
@@ -72,25 +76,25 @@ As the site admin I want to:
 + Through the basket page, users can see all the items that were added to their basket and when they change the quantity of it, it shows instantly. Once the user is ready for checkout, they will see a form which they have to fill for the checkout to be completed. Once completed, the order will be stored in Account > Order History and user can see it anytime.
 + After every user input, submission, registration, login, comment, reply they are notified by toast messages from the website that briefly describes the action taken so that user knows their action was properly submitted.
 ### Skeleton Plane 
-**Wireframes**
+#### Wireframes
 The wireframes for the project can be found in the attached pdf file:
  [Wireframes link](static/pdf/MS4-wireframes.pdf)
-**Database Design**
+#### Database Design
 -	As Django works with SQL databases by default, I was using SQLite in development. Heroku, however, provides a PostgreSQL database for deployment. 
 -	The User model utilized for this project is the standard one provided by  django.contrib.auth.models
 -	An image of the database scheme is shown below:
 [ms4-schema](media/ms4-schema.jpg)
 
-**Security**
+#### Security
 -	Using config variables in heroku, all access keys are stored safely to prevent unwanted connections to the database, including secret keys.
 -	Django allauth was used to set up user registration and built-in decorators allowed restricted access to certain features on the website that are not intended for regular users.
 ### The Surface Plane
 #### Colour scheme
 The website has a simple monotone colour scheme with the use of black and white as the base. A few pops of pale yellow to represent vanilla colours, and shades of grey was used to also tie in with the images. 
 ![colour palette](readme/images/colour-pallet.png)
-Typography
+#### Typography
 The main font used throughout the website is 'Cabin' as it is a soft rounded font that is easy to read. The’ Vanilla’ part of the logo is italicised and yellow to stand out and contrast from the rest of the logo.
-Images 
+#### Images 
 -	Hero image and candle images were free images taken from [Unsplash.com](https://unsplash.com/)
 -	Workshop images were free images taken from [Pexels.com](https://pexels.com/)
 ##  Features
@@ -163,64 +167,106 @@ Saving shipping information is done through a form which can be edited anytime. 
 -	Allowing registered users to write reviews or comments on their experience with the workshops/products, as well as rate the products.
 
 ## Technologies Used
-
-HTML - used to create the site structure.
-CSS - used to create the styling throughout the site.
-JavaScript - this was used for the addition/deletion of ingredients and methods buttons
-jQuery - this was used to activate the Materialize functionality.
-Python - used to write the logic that operates the site.
-Django - web framework used to allow a modular site to be created.
-Font-Awesome - icons were taken from this site for the forms, header, footer and social buttons.
-Google fonts - as previously stated, the fonts used were taken from here.
-Heroku - used for hosting website.
-Bootstrap - used for responsive grid framework, navigation and buttons.
-Stripe - ecommerce payment system.
 ### Languages
-- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for designing and styling the web pages
-- [javascript](https://www.javascript.com/)
-- [Python](https://www.python.org/) for the backend development
++ [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
++ [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) for designing and styling the web pages
++ [javascript](https://www.javascript.com/) for some website functions
++ [Python](https://www.python.org/) for the backend development
 ### Database
-- [SQLlite (in Development)](https://www.sqlite.org/index.html) and [Postgres (at deployment)](https://www.postgresql.org/) Although SQLite has been used as the backend database during development, the 
++ [SQLlite (in Development)](https://www.sqlite.org/index.html)
++ [Postgres (at deployment)](https://www.postgresql.org/)
 ### Libraries and Frameworks
-- [Font Awesome](https://fontawesome.com/) - have been used for the button icons that are used in the website
-- [Google Fonts](https://fonts.google.com/) have been used to give the website a uniform look with the help of fonts provided by google
-- [jQuery](https://jquery.com) - have been used to simplify DOM manipulation.
-- [Django](https://www.djangoproject.com/) - web framework for creating modular websites
-- [Bootstrap](https://getbootstrap.com/docs/3.4/css/) - CSS used for responsive grid framework and general styling
-- [Stripe](https://stripe.com/en-dk) - used for payment with credit card
++ [Font Awesome](https://fontawesome.com/) used for the all icons on the website
++ [Google Fonts](https://fonts.google.com/) used to give the website fonts that are easy to read
++ [jQuery](https://jquery.com) used to simplify DOM manipulation.
++ [Django](https://www.djangoproject.com/) used to create framework of code for website
++ [Bootstrap](https://getbootstrap.com/docs/3.4/css/) used for responsive design and general styling
++ [Stripe](https://stripe.com/en-dk) used to generate online payments
 ### Hosting
-- [GitHub](https://github.com/) have been used for storing the application in public repositories
-- [GitPod](https://gitpod.io/workspaces/) have been used as the primary development platform
-- [Heroku](https://www.heroku.com/) have been used to host the website
-- [AWS](https://aws.amazon.com/?nc2=h_lg) for static and media files
++ [GitHub](https://github.com/) used to store the application in public repositories
++ [GitPod](https://gitpod.io/workspaces/) used as the primary development platform
++ [Heroku](https://www.heroku.com/) used to host the website
++ [AWS](https://aws.amazon.com/?nc2=h_lg) cloud used to hold static and media files 
 
 ## Testing
-## Heroku Deployment 
+Separate testing file found [here](TESTING.md)
 
+## Deployment
+### AWS S3
+AWS is a cloud based storage service, used to store static files and images:
+
+1.	After creating an AWS account (using the free version will be sufficient), access the AWS management console in your account.
+2.	Find s3 by searching for this in services.
+3.	Open s3 and create a new bucket.
+4.	Enter a name for your bucket/select your closest region.
+5.	Uncheck the block public access box, and create the bucket.
+6.	Once created, click on the bucket and enter the following settings:
+	-	Under Properties, turn on static website hosting
+	- 	Under Permissions, paste in the CORS configuration:
+
+	```
+        [
+ 		    {
+     		    "AllowedHeaders": [
+         		    "Authorization"
+     			    ],
+     		    "AllowedMethods": [
+       			    "GET"
+     			    ],
+     		    "AllowedOrigins": [
+         		    "*"
+     			    ],
+    		    "ExposeHeaders": []
+ 		    }
+	    ] 
+    ```
+    -	Go to the bucket policy tab and select, policy generator so we can create a security policy for this bucket.
+    -	The policy type is going to be s3 bucket policy, allow all principals by using a star, and the action will be, get object
+    -	Copy the ARN which stands for Amazon resource name from bucket policy tab and paste it into the ARN box here at the bottom, then click Add Statement, then click Generate Policy then copy this policy into the bucket policy editor.
+    -	Before clicking Save, because we want to allow access to all resources in this bucket, add a slash star onto the end of the resource key
+    -	Go to the access control list tab, and set the list objects permission for everyone under the Public Access section
+7.	With our s3 bucket ready to go. Now we need to create a user to access it. do this through another service called ‘I am’ which stands for Identity and Access Management.
+8.	Go back to the services menu and open ‘I am’
+9.	Click groups then create a new group (keep clicking through to Create Group)
+10.	Create the policy used to access our bucket by clicking policies and then create policy
+11.	Go to the JSON tab and then select import managed policy, then search for s3 and then import the s3 full access policy
+12.	Get the bucket ARN from the bucket policy page in s3, and paste that in the JSON section
+13.	Now click review policy, give it a name and a description, and then click create policy
+14.	Now attach the policy to the group we created, go to groups, click manage my group, click attach policy, search for the policy we just created and select it, and click attach policy
+
+15.	Create a user to put in the group. On the user's page, I'll click add user, create a user, give them programmatic access, then select next
+16.	Now add user to your group. Important: Now download the CSV file which will contain this users access key and secret access key which we'll use to authenticate them from our Django app (cannot access this again so do this now)
+17.	To Connect Django to s3 bucket, Install 2 new packages:
+    -	```pip3 install boto3```
+    -	```pip3 install django-storages```
+18.	Then freeze requirements:
+    -	```pip3 freeze > requirements.txt```
+19.	Add ‘storages’ to installed apps on settings.py
+20.	To connect Django to s3 we need to add some settings in settings.py to tell it which bucket it should be communicating with:
+21.	Go to Heroku and add our AWS keys to the config variables, as well as adding that key called USE_AWS which I'll set to true
+22.	Also remove the disable collect static variable
+23.	In our settings file, we need to tell django where our static files will be coming from in production.
+24.	Create a file called custom storages
+25.	Go to settings.py, tell it that for static file storage we want to use our storage class we just created, and that the location it should save static files is a folder called static. Do the same thing for media files by using the default file storage and media files location settings.
+26.	Add/commit changes in github.
+
+### Deploy To Heroku
 #### Create application:
-
 1. Navigate to Heroku.com and login.
 2. Click on the new button.
 3. Select create new app.
 4. Enter the app name.
-5. Select region.
-
+5. Select region
 #### Set up connection to Github Repository:
-
 1. Click the deploy tab and select GitHub - Connect to GitHub.
 2. A prompt to find a GitHub repository to connect to will then be displayed.
 3. Enter the repository name for the project and click search.
 4. Once the repo has been found, click the connect button.
-
 #### Add PostgreSQL Database:
-
 1. Click the resources tab.
 2. Under Add-ons search for Heroku Postgres and then click on it when it appears.
 3. Select Plan name Hobby Dev - Free and then click Submit Order Form.
-
 #### Set environment variables:
-
 1. Click on the settings tab and then click reveal config vars.
 2. Variables added: 
     * AWS_ACCESS_KEY_ID 
@@ -234,23 +280,31 @@ Stripe - ecommerce payment system.
     * STRIPE_SECRET_KEY 
     * STRIPE_WH_SECRET 
     * USE_AWS 
-
 #### Enable automatic deployment:
-
 1. Click the Deploy tab
 1. In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
 
-## Local Deployment
-
+### Deploy To GitHub
 1. Navigate to the GitHub Repository.
 2. Click the Code drop down menu.
 3. Either Download the ZIP file, unpackage locally and open with IDE (This route ends here) OR Copy Git URL from the HTTPS dialogue box.
 4. Open your development editor of choice and open a terminal window in a directory of your choice.
 5. Use the git clone command in terminal followed by the copied git URL.
 6. A clone of the project will be created locally on your machine.
-
 Once the project has been loaded into an IDE of choice, run the following command in the shell to install all the required packages: pip install -r requirements.txt
 
-# Credits
-
-## Content
+## Credits
+### Tutorials
+I used the Code Institute Boutique Ado Mini-Project by [Chris Zielinski](https://code-institute-room.slack.com/team/U9QSX6HCG) as the main basis of my own project.
+### Slack Community
+I was able to resolve many issues, in particular with deployment to Heroku and using AWS services, after searching on Slack in the Code Institute community. 	
+### Images
+-	Hero image and candle images were free images taken from [Unsplash.com](https://unsplash.com/)
+-	Workshop images were free images taken from [Pexels.com](https://pexels.com/)
+### Text 
+-	Workshop descriptions were inspired by [Hand Made Workshops](https://handmadeworkshops.co.uk/).
+-	The candle descriptions, mainly the candle scents were found through google searches. 
+## Acknowledgement
+- My Mentor for continuous help and support throughout the project.
+- The [Code Institute](https://codeinstitute.net/) Slack Community.
+- A friend who has given me continuous help and advice throughout the project.
