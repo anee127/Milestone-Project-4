@@ -7,7 +7,7 @@ body {
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
-    font-family: 'Cabin';
+    font-family: 'Cabin' !important; 
 }
 
 /* from Bulma */
@@ -50,36 +50,39 @@ body {
 
 .book-now-button {
     background: black;
-    color: white;
+    color: #F3E5AB;
     min-width: 260px;
+    border-radius: 30px;
 }
 
 .btn-black {
     background: black;
-    color: white;
+    color: #F3E5AB;
+    border-radius: 30px;
 }
 
 .btn-outline-black {
-    background: white;
+    background: #F3E5AB;
     color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
+    border-radius: 30px;
 }
 
 .btn-outline-black:hover,
 .btn-outline-black:active,
 .btn-outline-black:focus {
     background: black;
-    color: white !important;
+    color: #F3E5AB !important;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.book-now-button:hover,
+.book-now-button:active,
+.book-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
     background: #222;
-    color: white;
+    color: #F3E5AB;
 }
 
 .text-black {
