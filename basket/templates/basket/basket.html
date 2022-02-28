@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load basket_tools %}
+{% load basket_tool %}
 
 {% block content %}
     <div class="overlay"></div>
@@ -130,7 +130,7 @@
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
         var url = `/basket/remove/${itemId}/`;
-
+        var data = {'csrfmiddlewaretoken': csrfToken,};
         $.post(url, data)
          .done(function() {
              location.reload();
