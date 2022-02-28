@@ -1,3 +1,4 @@
+Testing.md
 ## Table of Contents
 - [Manual Testing](#manual-testing)	
 * [Responsiveness](#responsiveness)
@@ -79,7 +80,7 @@ and this will take the user to the Workshop or Candles list page.
 -    ![Successful Purchase]()
 
 #### Admin product management
-*The admin/owner can make changes to products through CRUD operations within the website rather than through Django admin, in case the shop owner does not have access.
+* The admin/owner can make changes to products through CRUD operations within the website rather than through Django admin, in case the shop owner does not have access.
 *   A product management options is displayed through the account dropdown menu. 
 - ![Navigate to product management](readme-files/images/admin-nav.jpg)
 * A new workshop/product can be created through a form by adding a Title, Category, Description, Image Url and Price, which will then be added to the database, the system also checks that the mandatory fields are filled.
@@ -93,19 +94,19 @@ and this will take the user to the Workshop or Candles list page.
 
 ### Validation Tests
 
-***HTML Validation**
+* **HTML Validation**
 -	The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). 
 -	The generated html is complaint as per W3C standards with one error stating that duplicate IDs are being used, however this does not need to be changed as one is a label.
 -	![html validation](readme-files/images/html-check.jpg)
-**CSS Validation**
+* **CSS Validation**
 -	The CSS for the project has been validated using [W3C's CSS Validator](https://jigsaw.w3.org/css-validator/). 
 -	The results came back with no errors. 
 -	![CSS Validation](readme-files/images/css-check.jpg) 
-**JavaScript Validation**
+* **JavaScript Validation**
 The custom JavaScript code has been validated using [JShint](https://jshint.com/). The only warning was due to the use of $ which has been used for jQuery references and cannot be changed.
-**PEP8 Compliance**
+* **PEP8 Compliance**
 The python code file has been tested for PEP8 compliance, using the [PEP8 online]( http://pep8online.com/). Changes had to be made manually as GitPod does not have a python code formatter or checker that can be installed. Most issues have been fixed but some warnings do not affect the overall code, so these were left along, for example when a line is too long.
-**Performance Testing**
+* **Performance Testing**
 -	Lighthouse Summary
 + ![Lighthouse Performance](readme-files/images/lighthouse-desktop.jpg)
 + ![Lighthouse Performance](readme-files/images/lighthouse-mobile.jpg)
