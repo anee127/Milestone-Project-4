@@ -91,7 +91,7 @@ The wireframes for the project can be found in the attached pdf file:
 ### The Surface Plane
 #### Colour scheme
 The website has a simple monotone colour scheme with the use of black and white as the base. A few pops of pale yellow to represent vanilla colours, and shades of grey was used to also tie in with the images. 
-![colour palette](readme/images/colour-pallet.png)
+![colour palette](readme-files/images/colour-scheme-4.png)
 #### Typography
 The main font used throughout the website is 'Cabin' as it is a soft rounded font that is easy to read. The’ Vanilla’ part of the logo is italicised and yellow to stand out and contrast from the rest of the logo.
 #### Images 
