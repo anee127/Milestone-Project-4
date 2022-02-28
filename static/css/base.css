@@ -167,17 +167,6 @@ footer {
     overflow-y: auto;
 }
 
-/* -------------------------------- back to home */
-
-
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
 
 /* Allauth form formatting */
 
@@ -261,6 +250,16 @@ footer {
     border-radius: 0;
 }
 
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -284,5 +283,41 @@ footer {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .display-4.title-font.text-black {
+        font-size: 2rem;
+    }
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.btn-outline-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
     }
 }
