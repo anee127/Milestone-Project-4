@@ -115,6 +115,12 @@ body {
     cursor: pointer;
 }
 
+/* -------------------------------- footer */
+
+footer {
+    margin-top: 4rem;
+}
+
 /* -------------------------------- toast messages */
 
 
