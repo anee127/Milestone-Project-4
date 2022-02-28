@@ -25,6 +25,10 @@ body {
     font-style: italic;
 }
 
+.hero-text {
+    font-weight: 400;
+}
+
 .first-logo {
     color:  #F3E5AB;
 }
