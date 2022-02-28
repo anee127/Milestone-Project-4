@@ -57,20 +57,17 @@ body {
     background: black;
     color: #F3E5AB;
     min-width: 260px;
-    border-radius: 30px;
 }
 
 .btn-black {
     background: black;
     color: #F3E5AB;
-    border-radius: 30px;
 }
 
 .btn-outline-black {
     background: #F3E5AB;
     color: black !important; /* use important to override link colors for <a> elements */
     border: 1px solid black;
-    border-radius: 30px;
 }
 
 .btn-outline-black:hover,
