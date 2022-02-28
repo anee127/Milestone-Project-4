@@ -1,4 +1,4 @@
-![Vanilla and Musk](readme/images/hero-image.png)
+![Vanilla and Musk](readme-files/images/vanilla-musk.jpg)
 
 **The live website can be found at:** [https://anee127-vanilla-musk.herokuapp.com/]
 
