@@ -8,7 +8,6 @@ from products.models import Product
 
 def view_basket(request):
     """ A view that renders the basket contents page """
-    print('hello')
     return render(request, 'basket/basket.html')
 
 
