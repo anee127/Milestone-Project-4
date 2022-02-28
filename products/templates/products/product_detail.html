@@ -29,7 +29,7 @@
                                                     <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
                                                 </small>
                                             {% endif %}
-                    <!-- Quantity/add to cart -->
+                    <!-- Quantity/add to Basket -->
                 <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
                     {% csrf_token %}
                     <div class="form-row">
@@ -48,7 +48,7 @@
                             </div>
                         </div>
                         <div class="col-12">
-                            <input type="submit" class="cta cta-white product-page-cta" value="Add to Cart">
+                            <input type="submit" class="cta cta-white product-page-cta" value="Add to Basket">
                         </div>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                     </div>
