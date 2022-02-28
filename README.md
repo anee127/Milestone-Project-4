@@ -78,12 +78,12 @@ As the site admin I want to:
 ### Skeleton Plane 
 #### Wireframes
 The wireframes for the project can be found in the attached pdf file:
- [Wireframes link](static/pdf/MS4-wireframes.pdf)
+ [Wireframes link](readme-files/pdf/MS4-wireframes.pdf)
 #### Database Design
 -	As Django works with SQL databases by default, I was using SQLite in development. Heroku, however, provides a PostgreSQL database for deployment. 
 -	The User model utilized for this project is the standard one provided by  django.contrib.auth.models
 -	An image of the database scheme is shown below:
-[ms4-schema](media/ms4-schema.jpg)
+[MS4-schema](readme-files/pdf/ms4-schema.pdf)
 
 #### Security
 -	Using config variables in heroku, all access keys are stored safely to prevent unwanted connections to the database, including secret keys.
@@ -100,70 +100,40 @@ The main font used throughout the website is 'Cabin' as it is a soft rounded fon
 ##  Features
 ### Existing Features
 Website features:
-**Navigation Bar**
+- **Navigation Bar**
 The navigation bar is visible on all pages and on all sizes (on a smaller width, it toggles into "hamburger"). It contains the web-site logo and a set of links for each section and subsection of site. On mobile devices the logo will not be visible to allow space for other nav items.
-**Homepage**
+- **Homepage**
 The homepage is simply an image of a candle with a brief introduction to the site and a button to link to the workshops as that is the main purpose of the site. 
-**Footer Section**
+- **Footer Section**
 The footer field contains three sections, the first section provides contact information the second section contains the location for the workshops and the final section gives users the option to stay up to date with the app via links to social media profiles.
-**Workshop Page**
+- **Workshop Page**
 Workshops are listed for users to choose from and find out more information by clicking on the images. They are navigated to the workshop details page where a picture relevant to the workshop, type of workshop, description, price and an ‘book now’ button if they would like to purchase a ticket.
-**Products** 
+- **Products** 
 Standard e-commerce feed of products with the option to sort the candle products and filter them by name and price. The images links to a product page where the user can read more about it, including picture of the product, name, description, price and add to basket button if they would like to add product.
-**User account**
+- **User account**
 User and profile information is available to registered/logged in users with the purpose of tracking their order history and safely storing shipping details for a smooth checkout. 
-**Admin account**
-Available users with admin rights with the purpose of having access to the orders, user profiles, as well as product and blog inventory. Majority of the information is stored in the Django admin site but the users can also do common tasks such as adding, editing and deleting products/workshops directly through the website.
-**Search functionality**
+- **Admin account**
+Available users with admin rights with the purpose of having access to the orders, user profiles, as well as product and inventory. Majority of the information is stored in the Django admin site but the users can also do common tasks such as adding, editing and deleting products/workshops directly through the website.
+- **Search functionality**
 A Search box is part of the top navigation and is, therefore, accessible on all pages. On mobile and ipad the search bar is collapsed under the search symbol. It allows customers to enter keywords associated with the products/workshops they wish to purchase
-**Toast Messages**
+- **Toast Messages**
 Small snippets of messages divided into 4 main categories: toast_success, toast_info, toast_warning and toast_error.
 They appear on every page whenever a certain action has been done by the user.
-Their purpose is to give feedback on the action a user has just performed, such as logging in, logging out, adding a product to the cart, updating the cart, editing a blog post, finishing the checkout process, etc.
-**Django-allauth feature**
+Their purpose is to give feedback on the action a user has just performed, such as logging in, logging out, adding a product to the basket, updating the basket, and finishing the checkout process, etc.
+- **Django-allauth feature**
 django-allauth is a Python package. As written in the django-allauth docs, it is an "integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication."
 It provides a set of features such as signup, login, logout and password change
 After signing up, a verification e-mail is sent to the registered e-mail to confirm it. Once confirmed, the user can log in with their credentials and access the profiles app.
 The links to these features can be found in the navigation, under the My Account dropdown menu, as well as on the pages and throughout the web app.
-**Automatic e-mails**
+- **Automatic e-mails**
 An account is working for this project and used as a sender for all verification, reset and confirmation e-mails.
 For example, users receive an order confirmation e-mail after a purchase, account verification e-mail after the registration, password reset e-mail after requesting a password reset, etc.
-####Home app
-home Django app mainly serving as an introduction to the company and the marketplace.
-Another feature on the home page is the new arrivals section, this section contains 3 pictures of the newest products that are clickable links to the full details of the products.
-####Products app
-products Django app is where all the logic and templates connected to the product feed and individual products are.
-It can be divided into three main sections: shop, product pages and admin product management activities.
-Shop is the main feed of products and this is where the majority of shopping journeys are expected to start. The shopping experience is enhanced by having a dropdown for sorting products (A-Z, Z-A, price low-high, price high-low),
-By clicking on a product, user can see the full product info including pictures of product, name, description, price and an add button if they would like to add product.
-Admin product management activities include adding, editing and deleting products. Users with admin rights can do that directly in the UI through forms.
-####Bag app
-bag Django app is a standard e-commerce functionality which aids the checkout process.
-A cart is always present in the top right corner of the web app. The bag adds a number symbol beside the cart letting the user know how many items they currently have in their bag.
-Users can edit quantity of items or remove them from cart and see price total amount. In order to proceed with checkout, user will be required to register on the site. When user decides to finish shopping, they will need to input their information and credit card details so that purchase can be completed.
-If users try to access their empty carts, there will be a message displayed that nothing has been added yet and encourage them to go to the shop.
-####Checkout app
-checkout Django app is another standard e-commerce functionality which enables users to buy the products online from the shop.
-In order to check out, the user is presented with a form asking for the shipping and payment details and with the overview of the order.
-Users can easily go back to the cart and adjust it by clicking on the cart in the top right corner or breadcrumbs in the top left corner.
-A webhook is implemented to the checkout so that the order is successfully processed in case the checkout process gets interrupted. Some reasons might be closing the browser too soon or losing internet connection.
-"payments" are handled through stripe. A test purchase can be made with the following details:
-credit card: 4242 4242 4242 4242
-expiration date: 04 / 24
-CVC: 424
-ZIP: 42424
-After the payment has been processed, the user is presented with the order summary on the order confirmation page.
-logged in buyers can also see their order history on the profiles pages.
-####Profiles app
-profiles Django app is available to registered, authenticated users.
-It offers 2 features: order history and saving shipping information.
-Order history displays all previous orders per user account.
-Saving shipping information is done through a form which can be edited anytime. This information is what populates the checkout form for the next orders and where shipping information saved during the checkout process is stored.
+
 ### Features Left to Implement
-**Save for later**
+***Save for later**
 -	A feature that allows authenticated users to save items for later.
 -	Every product in the feed and on product pages would have a heart-shaped icon which would add the product on a list. The list could be accessed on one of the profiles pages, where users can remove the items from the list as well.
-**Reviews**
+***Reviews**
 -	Allowing registered users to write reviews or comments on their experience with the workshops/products, as well as rate the products.
 
 ## Technologies Used
