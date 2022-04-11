@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = ['anee127-vanilla-musk.herokuapp.com', 'localhost']
 
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'basket',
     'checkout',
     'profiles',
+    'blog',
 
     # OTHER
 
@@ -121,7 +122,7 @@ WSGI_APPLICATION = 'vanilla_musk.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# https:docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
     print("POSTGRES")

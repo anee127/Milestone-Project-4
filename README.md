@@ -82,8 +82,8 @@ The wireframes for the project can be found in the attached pdf file:
 #### Database Design
 -	As Django works with SQL databases by default, I was using SQLite in development. Heroku, however, provides a PostgreSQL database for deployment. 
 -	The User model utilized for this project is the standard one provided by  django.contrib.auth.models
--	An image of the database scheme is shown below:
-[MS4-schema](readme-files/pdf/ms4-schema.pdf)
+-	An image of the database scheme is shown
+[here](readme-files/pdf/ms4-schema.pdf)
 
 #### Security
 -	Using config variables in heroku, all access keys are stored safely to prevent unwanted connections to the database, including secret keys.
@@ -130,10 +130,10 @@ An account is working for this project and used as a sender for all verification
 For example, users receive an order confirmation e-mail after a purchase, account verification e-mail after the registration, password reset e-mail after requesting a password reset, etc.
 
 ### Features Left to Implement
-***Save for later**
+* **Save for later**
 -	A feature that allows authenticated users to save items for later.
 -	Every product in the feed and on product pages would have a heart-shaped icon which would add the product on a list. The list could be accessed on one of the profiles pages, where users can remove the items from the list as well.
-***Reviews**
+* **Reviews**
 -	Allowing registered users to write reviews or comments on their experience with the workshops/products, as well as rate the products.
 
 ## Technologies Used

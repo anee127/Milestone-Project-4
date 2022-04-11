@@ -37,26 +37,27 @@ Testing.md
 * Users can navigate to view all workshops or candles via the respective links from the nav menu,
 and this will take the user to the Workshop or Candles list page. 
 * On each page the number of products is displayed, as well as a sort menu so they can be sorted by name or price. 
--    ![Workshop List](readme-files/images/workshops.jpg)
--     ![Candles List](readme-files/images/candles.jpg)
+- ![Workshop List](readme-files/images/workshops.jpg)
+- ![Candles List](readme-files/images/candles.jpg)
 *   Users can view Individual Workshop/Candles details to fine prices, descriptions, the associated image, dates and timings, quantity they would like to add to basket and a add to basket button.
 - ![Workshop Details](readme-files/images/ws-details.jpg)
--	![Candles Details](readme-files/images/candle-details.jpg)
+- ![Candles Details](readme-files/images/candle-details.jpg)
 
 ### Registration and User Accounts
 *   Users can easily register or login for an account from the dropdown menu of the my account icon in the navbar. 
--    ![account icon](readme-files/images/account-icon.jpg)
+- ![account icon](readme-files/images/account-icon.jpg)
 *   A new user can register and create a profile to prefill a form for shipping and billing details needed for purchases. 
 - ![register page](readme-files/images/register.jpg)
 * a newly registered user is prompted to verify their email address and once this is done, they can redirect to the sign in page.
 * A message will pop up stating that the user has successfully signed in.
--    ![Successful Signup](readme-files/images/login-success.jpg) 
+- ![Successful Signup](readme-files/images/login-success.jpg) 
 *    Users can easily login or logout to access their personal account information and order history which will appear under their profile page.
 - ![login page](readme-files/images/login.jpg)
 - ![profile](readme-files/images/profile.jpg)
  * If a returning user make any mistakes while logging in an error message is displayed to let the user know that they can try again. 
-  -  ![Login page-invalid](readme-files/images/error-login.jpg)     
-    *   Users can easily recover their password in case they forget to gain access to their account again, located under the login page details.
+- ![Login page-invalid](readme-files/images/error-login.jpg)     
+ *   Users can easily recover their password in case they forget to gain access to their account again, located under the login page details.
+ 
 ### Searching
 *    Through the search bar users can look for both workshops and candles based on keywords found in the names of each product based on the search criteria.  A list off all results can appear if applicable.
 - ![Search bar](readme-files/images/searchbar.jpg)
