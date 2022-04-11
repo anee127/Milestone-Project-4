@@ -19,21 +19,21 @@
                     <div class="col-md-3 text-left"><strong>Date</strong></div>
                 </div>
                 <hr>
-                 <!-- {% for item in blog_list.all %} -->
-                <div class="row blog-list">
+                 {% for item in blog.all %}
+                <div class="row blog">
                     <div class="col-md-6 text-md-center">
-                        <!-- <a class="small mb-0 " href="{% url 'show_blog' item.id %}"> -->
-                            <!-- {{ item.blog_title }} -->
+                        <a class="small mb-0 " href="{% url 'show_blog' item.id %}"> -->
+                            {{ item.blog_title }}
                         </a>
                     </div>
                     <div class="col-md-3 text-md-left">
-                        <!-- <p class="small mb-0">{{ item.blog_author }}</p> -->
+                        <p class="small mb-0">{{ item.blog_author }}</p>
                     </div>
                     <div class="col-md-3 text-md-left">
-                        <!-- <p class="small mb-0">{{ item.blog_date }} </p> -->
+                        <p class="small mb-0">{{ item.blog_date }} </p>
                     </div>
                 </div>
-                <!-- {% endfor %} -->
+                {% endfor %}
             </div>
         </div>
     </div>
