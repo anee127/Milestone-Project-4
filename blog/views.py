@@ -40,7 +40,7 @@ def add_blog(request):
         else:
             messages.error(request, 'Failed to add Blog post. Please ensure the form is valid')
     else:
-        form = BlogForm()
+        blog_form = BlogForm()
 
     template = 'blog/add_blog.html'
     context = {
@@ -49,4 +49,24 @@ def add_blog(request):
 
     return render(request, template, context)
 
+@login_required
+def edit_blog(request, blog_id):
+    blog = get_object_or_404(Blog, pk=blog_id)
+    if request.method == 'POST':
+        blog_form = BlogForm(request.POST, instance=blog)
+        if blog_form.is_valid():
+            blog_form.save()
+            messages.success(request, 'Successfully updated Blog!')
+            return redirect(reverse('blog_detail', args=(blog_id,)))
+        else:
+            messages.error(request, 'Failed to update Blog. Please ensure the form is valid.')
+    else:
+        blog_form = BlogForm(instance=blog)
+    messages.info(request, f'You are editing {blog.blog_title}')
+    template = 'blog/edit_blog.html'
 
+    context = {
+        'blog_form': blog_form,
+        'blog': blog,
+    }
+    return render(request, template, context)
