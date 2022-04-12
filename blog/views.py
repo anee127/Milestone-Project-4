@@ -36,7 +36,7 @@ def add_blog(request):
         if blog_form.is_valid():
             blog = blog_form.save()
             messages.success(request, 'New Blog content Added Successfully !')
-            return redirect(reverse('add_blog'))
+            return redirect(reverse('blog_detail'))
         else:
             messages.error(request, 'Failed to add Blog post. Please ensure the form is valid')
     else:
@@ -70,3 +70,14 @@ def edit_blog(request, blog_id):
         'blog': blog,
     }
     return render(request, template, context)
+
+@login_required
+def delete_blog(request, blog_id):
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry! Only Administrator can do that')
+        return redirect(reverse('home'))    
+    blog = get_object_or_404(Blog, pk=blog_id)
+    blog.delete()
+    messages.success(request, 'Blog Deleted!')
+
+    return redirect(reverse('blog'))    
