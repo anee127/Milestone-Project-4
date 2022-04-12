@@ -17,10 +17,10 @@ def blog(request):
 
 def blog_detail(request, blog_id):
     single_blog = get_object_or_404(Blog, pk=blog_id)
+    template = 'blog/blog_detail.html'
 
     context = {
         'blog': single_blog,
-        'form': form,
     }
     return render(request, template, context)
 
@@ -44,7 +44,7 @@ def add_blog(request):
 
     template = 'blog/add_blog.html'
     context = {
-        'form': form,
+        'blog_form': blog_form,
     }
 
     return render(request, template, context)

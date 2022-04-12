@@ -23,10 +23,6 @@
             
                 <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content }}</p>
                 {% if blog.blog_content_para2 %}
-                    <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content_para2 }}</p>
-                {% endif %}
-                {% if blog.blog_content_para3 %}
-                    <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content_para3 }}</p>
                 {% endif %}
                 {% if request.user.is_superuser %}
                     <small class="ml-3">

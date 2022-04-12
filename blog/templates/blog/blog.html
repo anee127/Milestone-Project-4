@@ -24,7 +24,7 @@
                  {% for item in blog.all %}
                 <div class="row blog">
                     <div class="col-md-6 text-md-center">
-                        <a class="small mb-0 " href="{% url 'show_blog' item.id %}"> -->
+                        <a class="small mb-0 " href="{% url 'blog_detail' item.id %}"> -->
                             {{ item.blog_title }}
                         </a>
                     </div>
