@@ -2,45 +2,102 @@
 {% load static %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2 class="blog-title-font mb-4 text-center">
-                    {{ blog.blog_title }}
-               </h2>
-            </div>
-        </div>
-  
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
-                <p class="mb-0 text-center text-blue"> <strong>Author : {{ blog.blog_author }}</strong></p>
-            </div>
-        </div>
-        <hr>
-        <div class="row">
-            <div class="col-12 col-md-12 col-lg-12 text-justify">
-                <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content }}</p>
-                {% if request.user.is_superuser %}
-                    <small class="ml-3">
-                        <a href="{% url 'edit_blog' blog.id %}">Edit</a>
-                        <a href="{% url 'delete_blog' blog.id %}" class="text-danger">Delete</a>
-                    </small>
-                {% endif %}
-                <hr>
-                        <div class="col-md-8 ">
-                            <a href="{% url 'blog' %}" class="btn btn-outline-black rounded-0 mt-5">
-                                <span class="icon">
-                                    <i class="fas fa-chevron-left"></i>
-                                </span>
-                                <span class="text-uppercase">Go Back</span>
-                            </a>
-                        </div>
-                        <input type="hidden" name="blog" data-item_id="{{ blog.id }}" value="{{ blog.id }}">
-                </form>
-            </div>
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h2 class="blog-title-font mb-4 text-center">
+                {{ blog.blog_title }}
+            </h2>
         </div>
     </div>
-  
-    
+
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+            <p class="mb-0 text-center text-blue"> <strong>Author : {{ blog.blog_author }}</strong></p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-12 col-md-12 col-lg-12 text-justify">
+            <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content }}</p>
+            {% if request.user.is_superuser %}
+            <small class="ml-3">
+                <a href="{% url 'edit_blog' blog.id %}">Edit</a>
+                <a href="{% url 'delete_blog' blog.id %}" class="text-danger">Delete</a>
+            </small>
+            {% endif %}
+            <hr>
+            <form class="form mb-4" action="{% url 'blog_detail' blog.id %}" method="POST">
+                <!-- form for adding comments -->
+                <div class="form-row">
+                    <div class="col-8 offset-2">
+                        <!-- <p class="text-muted"></p> -->
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add"
+                            id="comment_{{ blog.id }}">
+                    </div>
+                </div>
+                <br>
+                <div class="row" id="divComments">
+                    <div class="col-8 p-4 border offset-2 bg-light">
+                        User Comments :
+                        <hr>
+                        {% for item in comments_on_blog.all %}
+                        <div class="bg-white mr-3 mw-100">
+                            <div class="row mb-2 m-1">
+                                <div class="col-md-6 text-md-left">
+                                    <p class="small mb-2 font-weight-bold text-muted">Posted by : {{ item.username }}
+                                    </p>
+                                </div>
+                                <div class="col-md-6 text-md-right">
+                                    <p class="small mb-2 font-weight-bold text-muted">On : {{ item.date }}</p>
+                                </div>
+                            </div>
+                            <div class="row mb-2 m-1">
+                                <div class="col-md-12 text-md-left">
+                                    Comments :
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-md-12 text-md-center mb-2">
+                                    {{ item.comments }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-md-8 ">
+                    <a href="{% url 'blog' %}" class="btn btn-outline-black rounded-0 mt-5">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Go Back</span>
+                    </a>
+                </div>
+                <input type="hidden" name="blog" data-item_id="{{ blog.id }}" value="{{ blog.id }}">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block postloadjs %}
+<script>
+function Togglediv() {
+    if ($("#divComments").is(":visible")) {
+        $("#divComments").hide();
+    } else {
+        $("#divComments").show();
+    }
+}
+
+Togglediv();
+$("button").click(function () {
+    $("#divComments").toggle();
+});
+</script>
+
 {% endblock %}

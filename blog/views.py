@@ -1,7 +1,7 @@
 from django.shortcuts import (
     render, reverse, redirect, get_object_or_404)
-from .models import Blog
-from .forms import BlogForm
+from .models import Blog, Comment
+from .forms import BlogForm, CommentForm
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -15,12 +15,48 @@ def blog(request):
     }
     return render(request, template, context)
 
+
 def blog_detail(request, blog_id):
     single_blog = get_object_or_404(Blog, pk=blog_id)
+    blog_comments = Comment.objects.all()
+    profile = None
+
+    if request.user.is_authenticated:
+        try:
+            profile = UserProfile.objects.get(user=request.user)
+            initial_data = {
+                'username': request.user,
+                'email': profile.user.email,
+            }
+            form = CommentForm(initial=initial_data)
+        except UserProfile.DoesNotExist:
+            form = CommentForm()
+    else:
+        form = CommentForm()
     template = 'blog/blog_detail.html'
+    if request.method == "POST":
+
+        form_data = {
+                    'comments': request.POST['comments'],
+                }
+
+    form = CommentForm(form_data)
+    if form.is_valid():
+            comment = form.save(commit=False)
+            comment.Blog_id = blog_id
+            comment.username = request.POST['username']
+            comment.email = request.POST['email']
+            comment.save()
+            messages.success(request, 'New Blog content Added Successfully !')
+            return redirect(reverse('blog_detail', args=(blog.id,)))
+    else:
+        messages.error(
+            request, 'Failed to add comment. Please ensure that the form is valid')
 
     context = {
         'blog': single_blog,
+        'form': form,
+        'comments': comments,
     }
     return render(request, template, context)
 
@@ -35,8 +71,8 @@ def add_blog(request):
         blog_form = BlogForm(form_data)
         if blog_form.is_valid():
             blog = blog_form.save()
-            messages.success(request, 'New Blog content Added Successfully !')
-            return redirect(reverse('blog_detail'))
+            messages.success(request, 'New Blog content Added Successfully!')
+            return redirect(reverse('blog_detail', args=(blog.id)))
         else:
             messages.error(request, 'Failed to add Blog post. Please ensure the form is valid')
     else:
@@ -57,7 +93,7 @@ def edit_blog(request, blog_id):
         if blog_form.is_valid():
             blog_form.save()
             messages.success(request, 'Successfully updated Blog!')
-            return redirect(reverse('blog_detail', args=(blog_id,)))
+            return redirect(reverse('blog_detail', args=(blog.id)))
         else:
             messages.error(request, 'Failed to update Blog. Please ensure the form is valid.')
     else:
