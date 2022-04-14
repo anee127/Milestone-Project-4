@@ -1,17 +1,15 @@
-<!-- {% extends "base.html" %}
+{% extends "base.html" %}
 {% load static %}
 
 {% block content %}
-  - Blog header --->
-    <!-- <div class="overlay"></div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="p-2 mt-2 badge badge-white text-black rounded-0">Blog list</h2>
-            </div>
-            <hr class="w-50 mb-1">
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col text-center mt-3">
+            <h2 class="p-2 mt-2 badge badge-white text-black rounded-0">Blog list</h2>
         </div>
-     Blogs 
+        <hr class="w-50 mb-1">
+    </div>
     <div class="row">
         <div class="col-12 col-lg-12">
             <div class="p-2 border">
@@ -21,31 +19,32 @@
                     <div class="col-md-3 text-left"><strong>Date</strong></div>
                 </div>
                 <hr>
-                 {% for item in blog.all %}
-                <div class="row blog">
-                    <div class="col-md-6 text-md-center">
-                        <a class="lead mb-0 text-left font-weight-bold" href="{% url 'blog_detail' item.id %}"> 
-                            {{ item.blog_title }}
-                        </a>
-                    </div>
-                    <div class="col-md-3 text-md-left">
-                        <p class="lead mb-0 text-left font-weight-bold">{{ item.blog_author }}</p>
-                    </div>
-                    <div class="col-md-3 text-md-left">
-                        <p class="lead mb-0 text-left font-weight-bold">{{ item.blog_date }} </p>
+                {% for blog in blogs %}
+                <div class="row mt-4">
+                    <div class="col-8 offset-2">
+                        <h3 class="blog-title mt-3">{{ blog.title }}</h3>
                     </div>
                 </div>
-                {% endfor %}
+                <div class="row">
+                    <div class="col-8 offset-2">
+                        <div class="text-muted">{{ blog.date_added | date:"d M - Y | h:i"}}</div>
+                    </div>
+                </div>
+                <div class="row pb-2 mt-3">
+                    <div class="col-8 offset-2">
+                        <a href="{% url 'detail_blog'  blog.slug %}" class="read-text">Read more</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <br><br><br>
-    <div class="row">
-        <div class="col-12 col-lg-12 text-center">
-            <a href="{% url 'home' %}" class="btn btn-black rounded-0 my-2">
-                    BACK TO HOME
-            </a>
+            {% endfor %}
         </div>
     </div>
 </div>
-{% endblock %} -->
+<div class="row">
+    <div class="col-12 col-lg-12 text-center">
+        <a href="{% url 'home' %}" class="btn btn-black rounded-0 my-2">
+            BACK TO HOME
+        </a>
+    </div>
+</div>
+{% endblock %}
