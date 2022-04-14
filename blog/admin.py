@@ -6,7 +6,7 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'content',
-        'date_added',
+        'date',
     )
 
 

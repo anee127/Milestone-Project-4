@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2 class="form-title mb-4">Blog Management</h2>
+                <h5 class="text-muted">Edit Blog</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <form method="POST" action="" class="form mb-2" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <div class="text-right">
+                        <a class="btn btn-outline-black rounded-0" href="">Cancel</a>
+                        <button class="btn btn-black rounded-0" type="submit">Update Blog</button>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </div>   
+{% endblock %}
