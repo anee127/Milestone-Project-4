@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+<!-- {% extends "base.html" %}
 {% load static %}
 
 {% block content %}
@@ -20,15 +20,15 @@
     <hr>
     <div class="row">
         <div class="col-12 col-md-12 col-lg-12 text-justify">
-            <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content }}</p>
+            <!-- <p class="blog-content form-row text-justify text-muted">{{ blog.blog_content }}</p> -->
             {% if request.user.is_superuser %}
             <small class="ml-3">
-                <a href="{% url 'edit_blog' blog.id %}">Edit</a>
-                <a href="{% url 'delete_blog' blog.id %}" class="text-danger">Delete</a>
+                <a href="">Edit</a>
+                <a href="" class="text-danger">Delete</a>
             </small>
             {% endif %}
             <hr>
-            <form class="form mb-4" action="{% url 'blog_detail' blog.id %}" method="POST">
+            <form class="form mb-4" action="" method="POST">
                 <!-- form for adding comments -->
                 <div class="form-row">
                     <div class="col-8 offset-2">
@@ -36,7 +36,7 @@
                         {% csrf_token %}
                         {{ form | crispy }}
                         <input type="submit" class="btn btn-black rounded-0 text-uppercase" value="Add"
-                            id="comment_{{ blog.id }}">
+                            id="comment">
                     </div>
                 </div>
                 <br>
@@ -100,4 +100,4 @@ $("button").click(function () {
 });
 </script>
 
-{% endblock %}
+{% endblock %} -->
