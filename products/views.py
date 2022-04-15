@@ -6,6 +6,8 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 
 from .models import Product, Category
+from reviews.models import Review
+from reviews.forms import ReviewForm
 from .forms import ProductForm
 
 
@@ -64,8 +66,20 @@ def product_detail(request, product_id):
 
     product = get_object_or_404(Product, pk=product_id)
 
+    reviews = Review.objects.filter(product=product)
+
+    # If user has reviewed an item
+    try:
+        item_review = Review.objects.filter(user=user, product=product)
+
+    except Review.DoesNotExist:
+        edit_review_form = None
+
+    review_form = ReviewForm()
     context = {
         'product': product,
+        'reviews': reviews,
+        'review_form': review_form,
     }
 
     return render(request, 'products/product_detail.html', context)
