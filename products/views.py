@@ -8,6 +8,7 @@ from django.db.models.functions import Lower
 from .models import Product, Category
 from reviews.models import Review
 from reviews.forms import ReviewForm
+from profiles.models import UserProfile
 from .forms import ProductForm
 
 
@@ -62,9 +63,14 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        user = UserProfile.objects.get(user=request.user)
+    else:
+        user = None
 
     reviews = Review.objects.filter(product=product)
 
