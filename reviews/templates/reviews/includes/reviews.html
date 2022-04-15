@@ -23,7 +23,7 @@
                         </button>
                     </div>
                     <!-- Review form -->
-                    <form action="{% url 'add_review' product.pk %}" method="POST">
+                    <form action="" method="POST">
                         <div class="modal-body">
                             <!-- Render form using cripsy forms -->
                             {% csrf_token %}
@@ -70,7 +70,7 @@
                                     </button>
                                 </div>
                                 <!-- Review form -->
-                                <form action="{% url 'edit_review' review.pk %}" method="POST">
+                                <form action="" method="POST">
                                     <div class="modal-body">
                                         <!-- Render edit form  -->
                                         {% csrf_token %}
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <a href="{% url 'delete_review' review.pk %}" type="button"
+                                    <a href="" type="button"
                                         class="btn btn-primary">Delete</a>
                                 </div>
                             </div>
