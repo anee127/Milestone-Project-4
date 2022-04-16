@@ -11,8 +11,7 @@ from profiles.models import UserProfile
 @login_required
 def add_review(request, product_id):
     """
-    Allow user to add a review and redirect them back to the
-    item product item view
+    Allow user to add a review
     """
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
@@ -28,7 +27,7 @@ def add_review(request, product_id):
                 title=title,
                 rating=rating,
                 description=description)
-            messages.success(request, 'Thank you! Your review was added')
+            messages.success(request, 'Thank you! Your review has been added')
             return redirect(reverse('product_detail', args=[product_id]))
         else:
             messages.error(request, 'Something went wrong. '
@@ -43,10 +42,11 @@ def add_review(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def edit_review(request, review_id):
     """
-    Saves review form edited by user
+   form edited by user
     """
     review = get_object_or_404(Review, pk=review_id)
     if request.method == 'POST':
@@ -54,7 +54,7 @@ def edit_review(request, review_id):
         if review_form.is_valid():
             review_form.save()
             # Success message if added
-            messages.success(request, 'Thank You! Your review was edited')
+            messages.success(request, 'Thank You! Your review has been updated!')
             return redirect(
                 reverse('product_detail', args=(review.product.id,)))
         else:
