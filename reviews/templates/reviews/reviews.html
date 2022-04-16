@@ -23,7 +23,8 @@
                         </button>
                     </div>
                     <!-- Review form -->
-                    <form action="" method="POST">
+                    <form action="{% url 'add_review' product.id %}" method="POST"class="form"
+                    enctype="multipart/form-data">
                         <div class="modal-body">
                             <!-- Render form using cripsy forms -->
                             {% csrf_token %}
@@ -70,7 +71,7 @@
                                     </button>
                                 </div>
                                 <!-- Review form -->
-                                <form action="" method="POST">
+                                <form action="{% url 'edit_review' product.id %}" method="POST">
                                     <div class="modal-body">
                                         <!-- Render edit form  -->
                                         {% csrf_token %}
@@ -125,7 +126,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <a href="" type="button"
+                                    <a href="{% url 'delete_review' product.id %}" type="button"
                                         class="btn btn-primary">Delete</a>
                                 </div>
                             </div>
@@ -153,5 +154,5 @@
 
 
 {% block postloadjs %}
-<script type="text/javascript" src="{% static 'js/review.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/reviews.js' %}"></script>
 {% endblock %}
