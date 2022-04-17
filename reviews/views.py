@@ -18,15 +18,10 @@ def add_review(request, product_id):
     if request.method == 'POST':
         review_form = ReviewForm()
         if review_form.is_valid():
-            title = review_form.cleaned_data['title']
-            description = review_form.cleaned_data['description']
-            rating = review_form.cleaned_data['rating']
-            Review.objects.create(
-                user=user,
-                product=get_object_or_404(Product, pk=product_id),
-                title=title,
-                rating=rating,
-                description=description)
+            new_form = review_form.save(commit=False)
+            new_form.product = product
+            new_form.user = user
+            new_form.save()
             messages.success(request, 'Thank you! Your review has been added')
             return redirect(reverse('product_detail', args=[product_id]))
         else:

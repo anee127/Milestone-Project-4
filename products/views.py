@@ -4,11 +4,11 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
+from django.db.models import Avg
 
 from .models import Product, Category
 from reviews.models import Review
 from reviews.forms import ReviewForm
-from profiles.models import UserProfile
 from .forms import ProductForm
 
 
@@ -63,32 +63,22 @@ def all_products(request):
 
 
 def product_detail(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
-    if request.user.is_authenticated:
-        user = UserProfile.objects.get(user=request.user)
-    else:
-        user = None
-
     reviews = Review.objects.filter(product=product)
-
-    # If user has reviewed an item
-    try:
-        item_review = Review.objects.filter(user=user, product=product)
-
-    except Review.DoesNotExist:
-        edit_review_form = None
-
     review_form = ReviewForm()
+    avg_rating = reviews.aggregate(Avg('rating'))['rating__avg']
+    product.save()
+    template = 'products/product_detail.html'
     context = {
         'product': product,
         'reviews': reviews,
         'review_form': review_form,
+        'avg_rating': avg_rating
     }
 
-    return render(request, 'products/product_detail.html', context)
+    return render(request, template, context)
 
 
 @login_required
