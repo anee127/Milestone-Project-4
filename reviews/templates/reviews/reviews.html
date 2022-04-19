@@ -5,7 +5,7 @@
 <div class="container text-center" id="reviews">
     <h2 class="font-heading d-inline-block p-1 mt-5 mb-3">Reviews</h2>
     <div class="mb-2 text-center">
-        <span class="rating-stars" data-value="{{ product.avg_rating }}"></span> <span>({{ reviews.count }})</span>
+        <span class="rating-stars" data-value="{{ avg_rating }}"></span> <span>({{ reviews.count }})</span>
     </div>
     {% if user.is_authenticated %}
     <div class="text-center mt-3">
