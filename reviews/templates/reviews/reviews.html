@@ -24,7 +24,7 @@
                         </button>
                     </div>
                     <!-- Review form -->
-                    <form action="{% url 'product_detail' product.id %}" method="POST"class="form"
+                    <form action="{% url 'add_review' product.id %}" method="POST" class="form" id="form"
                     enctype="multipart/form-data">
                         <div class="modal-body">
                             <!-- Render form using cripsy forms -->
@@ -34,7 +34,7 @@
                         <!-- Footer containing Add and Cancel buttons -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <input type="submit" class="btn btn-primary" value="Add" />
                         </div>
                     </form>
                 </div>
@@ -72,7 +72,7 @@
                                     </button>
                                 </div>
                                 <!-- Review form -->
-                                <form action="{% url 'edit_review' product.id %}" method="POST">
+                                <form action="{% url 'edit_review' review.id %}" method="POST">
                                     <div class="modal-body">
                                         <!-- Render edit form  -->
                                         {% csrf_token %}
@@ -98,7 +98,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Cancel</button>
-                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                            <input type="submit" class="btn btn-primary" value="Edit" />
                                     </div>
                                 </form>
                             </div>
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <a href="{% url 'delete_review' product.id %}" type="button"
+                                    <a href="{% url 'delete_review' review.id %}" type="button"
                                         class="btn btn-primary">Delete</a>
                                 </div>
                             </div>
