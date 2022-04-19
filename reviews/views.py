@@ -13,14 +13,11 @@ def add_review(request, product_id):
     """
     Allow user to add a review
     """
-    print("add review")
     user = get_object_or_404(UserProfile, user=request.user)
     product = get_object_or_404(Product, pk=product_id)
     if request.method == 'POST':
-        print("add reviewing")
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
-            print("add reviewer")
             review_form = review_form.save(commit=False)
             review_form.product = product
             review_form.user = user

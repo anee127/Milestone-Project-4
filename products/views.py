@@ -21,16 +21,6 @@ def all_products(request):
     sort = None
     direction = None
 
-    # reviews = Review.objects.filter(product=product)
-    # review_form = ReviewForm()
-    # avg_rating = reviews.aggregate(Avg('rating'))['rating__avg']
-
-    # products[0].uzair=23
-    # setattr(products[0], "uzair", 23)
-    # print("hello")
-    # print(products[0].uzair)
-
-
     if request.GET:
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
