@@ -12,7 +12,7 @@
     </div>
     <div class="row">
         <div class="col-12 col-lg-12">
-                {% for blog in blogs %}
+            {% for blog in blogs %}
                 <div class="row mt-4">
                     <div class="col-8 offset-2">
                         <h3 class="blog-title text-black mt-3">{{ blog.title }}</h3>
@@ -33,7 +33,6 @@
                         <a href="{% url 'blog_detail'  blog.slug %}" class="button-outline-black blog-btn">Read more</a>
                     </div>
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>
