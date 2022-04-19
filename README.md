@@ -38,13 +38,17 @@ This is the 4th Milestone project taken as part of Code Institute Diploma Curric
 ## User Experience
 
 ### Strategy Plane
-Vanilla and Musk is an e-commerce webs-shop that provides bookings to candle making workshops and sells handmade candles, located in East London. Customers can purchase products or book workshops which will be delivered to them by post.
+Vanilla and Musk is an e-commerce webs-shop that provides bookings to candle making workshops and sells handmade candles, located in East London. Customers can purchase products or book workshops which will be delivered to them by post. 
 **User stories **
 As the site user I want to:
 -	view a list of products
 -	view individual product details 
 -	view total purchase of items in my basket
 -	view the order history after purchase
+- 	view the blog section
+- 	be able to write comments under each blog
+- 	view ratings and reviews of products
+- 	be able to write reviews and rate products when logged in
 -	search for all products on the site
 -	be able to sort products by name or price
 -	be able to choose the quantity of a product to add to basket
@@ -60,6 +64,7 @@ As the site admin I want to:
 -	provide a website with easy navigation and simple design.
 -	Provide simple and straight forward information for users to purchase products.
 -	Be able to add, edit and delete products directly from the webpage rather than through Django admin.
+- 	create blogs for users to read and comment on
 ### Scope Plane
 **Features**
 -	Responsive design
@@ -68,11 +73,13 @@ As the site admin I want to:
 -	Homepage gives relevant information about site upon being welcomed
 -	Standard e-commerce function - can sort products by name or price.
 -	Products can be added to basket from details page. 
+- 	blogs can be read and allow for comments.
 -	Contact email and workshop location listed within footer, available on all pages.
 ### Structure Plane 
 + Upon arriving onto the homepage of the site, users are greeted with a hero image, text and button that links to workshops. Navigation, is at the top of all pages, contains the logo, linking to back to the homepage. There is also a menu bar that links to each section of the website. On smaller devices the links are in the hamburger menu. The contact, location and social information is within the footer element for users to access from every page. 
-+ The Candles page allows users see all candle products for sale. The Candles are presented as cards with an image, name and price. Users can click on the image to open a page containing details about that product and add it to their basket. When the user adds to the basket, they will see a toast message at the top of the page informing them that they have successfully put the product into their basket along with the quantity they chose. 
++ The Candles page allows users see all candle products for sale. The Candles are presented as cards with an image, name, rating and price. Users can click on the image to open a page containing details about that product and add it to their basket. When the user adds to the basket, they will see a toast message at the top of the page informing them that they have successfully put the product into their basket along with the quantity they chose. Logged in users can also rate products and leave a review at the bottom of each individual product page. 
 + The Workshops Page is similar to the Candles page. The description of the workshops is given including the date and time. The workshops can be paid for together with the other candle products if those are also added to the shopping basket. 
++ The blog page gives some information that shop owner decided to display. The initial page is viewed as a list then each individual page is laid out with information and any user can leave a comment on each blog. 
 + Through the basket page, users can see all the items that were added to their basket and when they change the quantity of it, it shows instantly. Once the user is ready for checkout, they will see a form which they have to fill for the checkout to be completed. Once completed, the order will be stored in Account > Order History and user can see it anytime.
 + After every user input, submission, registration, login, comment, reply they are notified by toast messages from the website that briefly describes the action taken so that user knows their action was properly submitted.
 ### Skeleton Plane 
@@ -110,12 +117,16 @@ The footer field contains three sections, the first section provides contact inf
 Workshops are listed for users to choose from and find out more information by clicking on the images. They are navigated to the workshop details page where a picture relevant to the workshop, type of workshop, description, price and an ‘book now’ button if they would like to purchase a ticket.
 - **Products** 
 Standard e-commerce feed of products with the option to sort the candle products and filter them by name and price. The images links to a product page where the user can read more about it, including picture of the product, name, description, price and add to basket button if they would like to add product.
+- **Reviews**
+Simple CRUD functionality for users to leave a review and rating on each individual product. The users must be registered before leaving a review. The reviews are displayed in order of date added. 
+- **Blog** 
+Blog information is available for all users to read and also comment on. The blogs CRUD functionality can only be accessed through site admin. 
 - **User account**
 User and profile information is available to registered/logged in users with the purpose of tracking their order history and safely storing shipping details for a smooth checkout. 
 - **Admin account**
 Available users with admin rights with the purpose of having access to the orders, user profiles, as well as product and inventory. Majority of the information is stored in the Django admin site but the users can also do common tasks such as adding, editing and deleting products/workshops directly through the website.
 - **Search functionality**
-A Search box is part of the top navigation and is, therefore, accessible on all pages. On mobile and ipad the search bar is collapsed under the search symbol. It allows customers to enter keywords associated with the products/workshops they wish to purchase
+A Search box is part of the top navigation and is, therefore, accessible on all pages. On mobile and iPad the search bar is collapsed under the search symbol. It allows customers to enter keywords associated with the products/workshops they wish to purchase
 - **Toast Messages**
 Small snippets of messages divided into 4 main categories: toast_success, toast_info, toast_warning and toast_error.
 They appear on every page whenever a certain action has been done by the user.
@@ -131,11 +142,8 @@ For example, users receive an order confirmation e-mail after a purchase, accoun
 
 ### Features Left to Implement
 * **Save for later**
--	A feature that allows authenticated users to save items for later.
--	Every product in the feed and on product pages would have a heart-shaped icon which would add the product on a list. The list could be accessed on one of the profiles pages, where users can remove the items from the list as well.
-* **Reviews**
--	Allowing registered users to write reviews or comments on their experience with the workshops/products, as well as rate the products.
-
+-	A feature that allows authenticated users to save items for later and it show up in a separate sections on the basket page.
+-	A feature that allows users to favourite items and arrange them into lists that can be accessed through the navbar or their profile page.
 ## Technologies Used
 ### Languages
 + [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) for creating the webpages
@@ -163,13 +171,13 @@ Separate testing file found [here](TESTING.md)
 
 ## Deployment
 ### AWS S3
-AWS is a cloud based storage service, used to store static files and images:
+AWS is a cloud-based storage service, used to store static files and images:
 
 1.	After creating an AWS account (using the free version will be sufficient), access the AWS management console in your account.
 2.	Find s3 by searching for this in services.
 3.	Open s3 and create a new bucket.
 4.	Enter a name for your bucket/select your closest region.
-5.	Uncheck the block public access box, and create the bucket.
+5.	Uncheck the block public access box and create the bucket.
 6.	Once created, click on the bucket and enter the following settings:
 	-	Under Properties, turn on static website hosting
 	- 	Under Permissions, paste in the CORS configuration:
@@ -208,17 +216,17 @@ AWS is a cloud based storage service, used to store static files and images:
 16.	Now add user to your group. Important: Now download the CSV file which will contain this users access key and secret access key which we'll use to authenticate them from our Django app (cannot access this again so do this now)
 17.	To Connect Django to s3 bucket, Install 2 new packages:
     -	```pip3 install boto3```
-    -	```pip3 install django-storages```
+    -	```pip3 install Django-storages```
 18.	Then freeze requirements:
     -	```pip3 freeze > requirements.txt```
 19.	Add ‘storages’ to installed apps on settings.py
 20.	To connect Django to s3 we need to add some settings in settings.py to tell it which bucket it should be communicating with:
 21.	Go to Heroku and add our AWS keys to the config variables, as well as adding that key called USE_AWS which I'll set to true
 22.	Also remove the disable collect static variable
-23.	In our settings file, we need to tell django where our static files will be coming from in production.
+23.	In our settings file, we need to tell Django where our static files will be coming from in production.
 24.	Create a file called custom storages
-25.	Go to settings.py, tell it that for static file storage we want to use our storage class we just created, and that the location it should save static files is a folder called static. Do the same thing for media files by using the default file storage and media files location settings.
-26.	Add/commit changes in github.
+25.	Go to settings.py, tell it that for static file storage we want to use our storage class we just created, and that the location it should save static files is a folder called static. Do the same thing for media files by using the default file storage and media file’s location settings.
+26.	Add/commit changes in GitHub.
 
 ### Deploy To Heroku
 #### Create application:
@@ -227,7 +235,7 @@ AWS is a cloud based storage service, used to store static files and images:
 3. Select create new app.
 4. Enter the app name.
 5. Select region
-#### Set up connection to Github Repository:
+#### Set up connection to GitHub Repository:
 1. Click the deploy tab and select GitHub - Connect to GitHub.
 2. A prompt to find a GitHub repository to connect to will then be displayed.
 3. Enter the repository name for the project and click search.
