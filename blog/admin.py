@@ -1,8 +1,10 @@
+""" admin details for blog """
 from django.contrib import admin
 from .models import Blog, Comment
 
 
 class BlogAdmin(admin.ModelAdmin):
+    """ blog Admin class """
     list_display = (
         'title',
         'content',
@@ -11,6 +13,7 @@ class BlogAdmin(admin.ModelAdmin):
 
 
 class CommentAdmin(admin.ModelAdmin):
+    """ comment admin class """
     list_display = (
         'name',
         'statement',

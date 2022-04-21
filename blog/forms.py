@@ -1,10 +1,13 @@
+""" forms for blog """
 from django import forms
 from .models import Comment
 from .models import Blog
 
 
 class CommentForm(forms.ModelForm):
+    """ comments form """
     class Meta:
+        """ meta class for comments model """
         model = Comment
         fields = ['name', 'statement']
 
@@ -14,7 +17,9 @@ class CommentForm(forms.ModelForm):
 
 
 class BlogForm(forms.ModelForm):
+    """ blogs form """
     class Meta:
+        """ meta class for blog model """
         model = Blog
         fields = '__all__'
 

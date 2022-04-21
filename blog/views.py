@@ -1,3 +1,4 @@
+""" blog views """
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -55,7 +56,8 @@ def add_blog(request):
             return redirect(reverse('blog_detail', args=[blog.slug]))
         else:
             messages.error(
-                request, 'Failed to add the blog post. Please ensure the form is valid.')
+                request, 'Failed to add the blog post.'
+                'Please ensure the form is valid.')
     else:
         form = BlogForm()
 
@@ -83,7 +85,8 @@ def edit_blog(request, slug):
             return redirect(reverse('blog_detail', args=[blog.slug]))
         else:
             messages.error(
-                request, 'Failed to update blog post. Please ensure the form is valid.')
+                request, 'Failed to update blog post.'
+                'Please ensure the form is valid.')
     else:
         form = BlogForm(instance=blog)
         messages.info(request, f'You are editing {blog.title}')

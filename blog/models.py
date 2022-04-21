@@ -1,7 +1,9 @@
+""" blogs model """
 from django.db import models
 
 
 class Blog(models.Model):
+    """ blog fields """
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     author = models.CharField(max_length=100)
@@ -13,6 +15,7 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
+    """ blog fields """
     blog = models.ForeignKey(
         Blog, related_name="comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=255)

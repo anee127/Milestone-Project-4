@@ -1,3 +1,4 @@
+""" reviews form """
 from django import forms
 from .models import Review
 
@@ -7,6 +8,7 @@ class ReviewForm(forms.ModelForm):
     Create a form for users to add reviews
     """
     class Meta:
+        """ form fields """
         model = Review
         exclude = (
             'user',

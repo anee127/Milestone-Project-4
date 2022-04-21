@@ -1,3 +1,4 @@
+""" reviews models """
 from django.db import models
 
 from profiles.models import UserProfile
@@ -5,10 +6,7 @@ from products.models import Product
 
 
 class Review(models.Model):
-    """
-    Creates a review model to allow user to perform
-    CRUD operations on product reviews
-    """
+    """ review model for CRUD operations """
 
     RATE = [
         (1, '1'),
