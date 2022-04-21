@@ -1,6 +1,5 @@
-Testing.md
 ## Table of Contents
-- [Manual Testing](#manual-testing)	
+- [Manual Testing](#manual-testing) 
 * [Responsiveness](#responsiveness)
 * [Overall Functional Testing](#overall-functional-testing)
     + [Navigation And Homepage](#navigation-and-homepage)
@@ -42,9 +41,12 @@ and this will take the user to the Workshop or Candles list page.
 *   Users can view Individual Workshop/Candles details to fine prices, descriptions, the associated image, dates and timings, quantity they would like to add to basket and a add to basket button.
 - ![Workshop Details](readme-files/images/ws-details.jpg)
 - ![Candles Details](readme-files/images/candle-details.jpg)
+* Registered Users can review and products, as well as edit, delete or add a new review through a review modal. 
+-  ![Review Modal](readme-files/images/review-modal.jpg)
+- - ![Review](readme-files/images/review.jpg)
 
 ### Registration and User Accounts
-*   Users can easily register or login for an account from the dropdown menu of the my account icon in the navbar. 
+*   Users can easily register or login for an account from the dropdown menu of the My Account icon in the navbar. 
 - ![account icon](readme-files/images/account-icon.jpg)
 *   A new user can register and create a profile to prefill a form for shipping and billing details needed for purchases. 
 - ![register page](readme-files/images/register.jpg)
@@ -61,7 +63,7 @@ and this will take the user to the Workshop or Candles list page.
 ### Searching
 *    Through the search bar users can look for both workshops and candles based on keywords found in the names of each product based on the search criteria.  A list off all results can appear if applicable.
 - ![Search bar](readme-files/images/searchbar.jpg)
--	![Search Results](readme-files/images/results.jpg)
+-   ![Search Results](readme-files/images/results.jpg)
 
 ### Basket and Checkout
 *   Any user can add a workshop/candle product to their basket and select the quantity. A message will pop up showing that it has been added to the basket.
@@ -78,13 +80,19 @@ and this will take the user to the Workshop or Candles list page.
 * The user is sufficiently notified if the card number is invalid, validated by Stripe. 
 -    ![Invalid Card Message](readme-files/images/card-error.jpg)
     *   A successful purchase message is displayed once the purchase has been made correctly and an order number is generated.
--    ![Successful Purchase]()
-
+-    ![Successful Purchase]( readme-files/images/success-checkout.jpg))
+#### Blog Function and Management
+•	A blog list is displayed correctly one under the other displaying the blog title, author and date of post as well as a link to go to the blog detail. 
+•	![Blog List](readme-files/images/blog-list.jpg) 
+•	In the blog details page comments can be made by any user but cannot be edited or deleted by user. 
+•	![ Comments](readme-files/images/blog-comments.jpgadd-blog.jpg) 
+•	CRUD functionality is applied to the blog post for site admin to add, delete or edit a post. 
+•	![Blog Management](readme-files/images/) 
 #### Admin product management
 * The admin/owner can make changes to products through CRUD operations within the website rather than through Django admin, in case the shop owner does not have access.
-*   A product management options is displayed through the account dropdown menu. 
+*   A product and blog management option is displayed through the account dropdown menu. 
 - ![Navigate to product management](readme-files/images/admin-nav.jpg)
-* A new workshop/product can be created through a form by adding a Title, Category, Description, Image Url and Price, which will then be added to the database, the system also checks that the mandatory fields are filled.
+* A new workshop/product can be created through a form by adding a Title, Category, Description, Image URL and Price, which will then be added to the database, the system also checks that the mandatory fields are filled.
 - ![Add new Workshop/product](readme-files/images/add-product.jpg)
 * Existing workshops/products can be edited or deleted directly through the website, only available to the admin/owner.
 ![edit/delete button](readme-files/images/edit-product.jpg)
@@ -96,22 +104,21 @@ and this will take the user to the Workshop or Candles list page.
 ### Validation Tests
 
 * **HTML Validation**
--	The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). 
--	The generated html is complaint as per W3C standards with one error stating that duplicate IDs are being used, however this does not need to be changed as one is a label.
--	![html validation](readme-files/images/html-check.jpg)
+-   The HTML for the project has been validated using [W3C's Validation service](https://validator.w3.org/). 
+-   The generated html is complaint as per W3C standards with one error stating that duplicate IDs are being used, however this does not need to be changed as one is a label.
+-   ![html validation](readme-files/images/html-check.jpg)
 * **CSS Validation**
--	The CSS for the project has been validated using [W3C's CSS Validator](https://jigsaw.w3.org/css-validator/). 
--	The results came back with no errors. 
--	![CSS Validation](readme-files/images/css-check.jpg) 
+-   The CSS for the project has been validated using [W3C's CSS Validator](https://jigsaw.w3.org/css-validator/). 
+-   The results came back with no errors. 
+-   ![CSS Validation](readme-files/images/css-check.jpg) 
 * **JavaScript Validation**
 The custom JavaScript code has been validated using [JShint](https://jshint.com/). The only warning was due to the use of $ which has been used for jQuery references and cannot be changed.
 * **PEP8 Compliance**
 The python code file has been tested for PEP8 compliance, using the [PEP8 online]( http://pep8online.com/). Changes had to be made manually as GitPod does not have a python code formatter or checker that can be installed. Most issues have been fixed but some warnings do not affect the overall code, so these were left along, for example when a line is too long.
 * **Performance Testing**
--	Lighthouse Summary
+-   Lighthouse Summary
 + ![Lighthouse Performance](readme-files/images/lighthouse-desktop.jpg)
 + ![Lighthouse Performance](readme-files/images/lighthouse-mobile.jpg)
-
 
 
 **Test for 404 - File not found**
@@ -121,8 +128,9 @@ As per the internal built in 404 error message display of Django Framework with 
 **Test for 500 - Internal Server Error**
 
 As per the internal built in 500 error message display of Django Framework with Debug set to False in code
+
 #### Bugs
--	There was one major bug that I was not able to fix. The email confirmation of purchases would not be sent out to users causing a webhook failure. I would like to get this fixed once I have more time to spend on the project. I spent hours with a course tutor to try to figure out the source of the problem, to no avail. 
+-   There was one major bug that I was not able to fix. The email confirmation of purchases would not be sent out to users causing a webhook failure. I would like to get this fixed once I have more time to spend on the project. I spent hours with a course tutor to try to figure out the source of the problem, to no avail. 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 [BACK TO README FILE]( https://github.com/anee127/Milestone-Project-4/blob/main/README.md)
