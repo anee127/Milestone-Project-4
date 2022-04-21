@@ -2,42 +2,45 @@
 {% load static %}
 
 {% block content %}
+<!-- Blogs list -->
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col text-center mt-3">
             <h1><span class="p-2 mt-2 badge badge-white text-black rounded-0">Blog list</span></h1>
             <hr class="w-50 mb-1">
-        </div> 
+        </div>
     </div>
+    <!-- blogs container -->
     <div class="row">
         <div class="col-12 col-lg-12">
             {% for blog in blogs %}
-                <div class="row mt-4">
-                    <div class="col-8 offset-2">
-                        <h3 class="blog-title text-black mt-3">{{ blog.title }}</h3>
-                    </div>
+            <div class="row mt-4">
+                <div class="col-8 offset-2">
+                    <h3 class="blog-title text-black mt-3">{{ blog.title }}</h3>
                 </div>
-                <div class="row">
-                    <div class="col-8 offset-2">
-                        <h6 class="blog-author mt-3">Author: {{ blog.author }}</h6>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <h6 class="blog-author mt-3">Author: {{ blog.author }}</h6>
                 </div>
-                <div class="row">
-                    <div class="col-8 offset-2">
-                        <div class="text-muted">{{ blog.date | date:"d M - Y"}}</div>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="col-8 offset-2">
+                    <div class="text-muted">{{ blog.date | date:"d M - Y"}}</div>
                 </div>
-                <div class="row pb-2 mt-3 mb-5">
-                    <div class="col-8 offset-2">
-                        <a href="{% url 'blog_detail'  blog.slug %}" class="button-outline-black blog-btn">Read more</a>
-                    </div>
+            </div>
+            <div class="row pb-2 mt-3 mb-5">
+                <div class="col-8 offset-2">
+                    <a href="{% url 'blog_detail'  blog.slug %}" class="button-outline-black blog-btn">Read more</a>
                 </div>
-                <hr>
+            </div>
+            <hr>
             {% endfor %}
         </div>
     </div>
 </div>
+<!-- Back to home button -->
 <div class="row">
     <div class="col-12 col-lg-12 text-center">
         <a href="{% url 'home' %}" class="btn btn-black rounded-0 my-2">

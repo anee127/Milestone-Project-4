@@ -29,7 +29,7 @@ def add_review(request, product_id):
                                     'Make sure the form is valid.')
     else:
         review_form = ReviewForm()
-    template = 'reviews/reviews.html'    
+    template = 'reviews/reviews.html'
     context = {
         'review_form': review_form,
         'product': product,
@@ -49,7 +49,8 @@ def edit_review(request, review_id):
         if review_form.is_valid():
             review_form.save()
             # Success message if added
-            messages.success(request, 'Thank You! Your review has been updated!')
+            messages.success(
+                request, 'Thank You! Your review has been updated!')
             return redirect(
                 reverse('product_detail', args=(review.product.id,)))
         else:
@@ -57,7 +58,7 @@ def edit_review(request, review_id):
             messages.error(request, 'Something went wrong. '
                                     'Make sure the form is valid.')
     else:
-        review_form = ReviewForm(instance=review)                                
+        review_form = ReviewForm(instance=review)
 
     template = "reviews/reviews.html"
     context = {

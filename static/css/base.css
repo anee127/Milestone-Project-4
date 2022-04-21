@@ -96,7 +96,7 @@ body {
     border: 1px solid black !important;
 }
 
-/* -------------------------------- overlay */
+/* -------------------------------- blog */
 
 .blog-btn {
     padding: 5px;
@@ -171,9 +171,6 @@ footer {
     overflow-x: hidden;
     overflow-y: auto;
 }
-
-/* -------------------------------- back to home */
-
 
 /* -------------------------------- Media Queries */
 

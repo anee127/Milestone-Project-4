@@ -13,10 +13,11 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
-    blog = models.ForeignKey(Blog, related_name="comments", on_delete=models.CASCADE)
+    blog = models.ForeignKey(
+        Blog, related_name="comments", on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     statement = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return '%s - %s' % (self.blog.title, self.name)     
+        return '%s - %s' % (self.blog.title, self.name)

@@ -25,7 +25,7 @@
                     </div>
                     <!-- Review form -->
                     <form action="{% url 'add_review' product.id %}" method="POST" class="form" id="form"
-                    enctype="multipart/form-data">
+                        enctype="multipart/form-data">
                         <div class="modal-body">
                             <!-- Render form using cripsy forms -->
                             {% csrf_token %}
@@ -42,7 +42,7 @@
         </div>
     </div>
     {% endif %}
-    <!-- Render existing reviews associated with particular product -->
+    <!-- Render existing reviews  -->
     <div class="row mt-5 d-flex justify-content-around">
         {% for review in reviews %}
         <div class="col-12 col-md-5 row p-3 m-3 border">
@@ -94,11 +94,11 @@
                                             <option value="5">5</option>
                                         </select>
                                     </div>
-                                    <!-- Footer containing Add and Cancel buttons -->
+                                    <!-- Footer containing Edit and Cancel buttons -->
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">Cancel</button>
-                                            <input type="submit" class="btn btn-primary" value="Edit" />
+                                        <input type="submit" class="btn btn-primary" value="Edit" />
                                     </div>
                                 </form>
                             </div>
